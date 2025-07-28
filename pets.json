@@ -1,4 +1,17 @@
 [
-  {"id": 1, "name": "Snowy", "animal": "Dog"},
-  {"id": 2, "name": "Mimi", "animal": "Cat"}
+    {
+        "id": 1,
+        "name": "Snowy",
+        "animal": "Dog"
+    },
+    {
+        "id": 2,
+        "name": "Tiger",
+        "animal": "Hamster"
+    },
+    {
+        "id": 3,
+        "name": "Lion",
+        "animal": "Fish"
+    }
 ]
