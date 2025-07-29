@@ -60,21 +60,28 @@ def get_pet(pet_id):
             return jsonify(pet)
     return jsonify({"error": "Pet not found"}), 404
 
-
-# Route: POST /pets
+#comment : pets store in mysql
 @app.route("/pets", methods=["POST"])
 def add_pet():
-    pets=load_pets()
     data = request.get_json()
-    print("my test",data)
-    new_pet = {
-        "id": len(pets) + 1,
-        "name": data["name"],
-        "animal": data["animal"]
-    }
-    pets.append(new_pet)
-    save_pets(pets)
-    return jsonify(new_pet), 201
+    save_to_mysql(data["name"], data["animal"])
+    return jsonify({"message": "Pet saved to MySQL"}), 201
+
+
+# Route: POST /pets (comment : pets store in json file)
+# @app.route("/pets", methods=["POST"])
+# def add_pet():
+#     pets=load_pets()
+#     data = request.get_json()
+#     print("my test",data)
+#     new_pet = {
+#         "id": len(pets) + 1,
+#         "name": data["name"],
+#         "animal": data["animal"]
+#     }
+#     pets.append(new_pet)
+#     save_pets(pets)
+#     return jsonify(new_pet), 201
 
 # Route: DELETE /pets/<int:pet_id>
 @app.route("/pets/<int:pet_id>", methods=["DELETE"])
